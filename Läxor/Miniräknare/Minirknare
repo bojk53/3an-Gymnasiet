@@ -1,0 +1,72 @@
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+import java.util.ArrayList;
+
+import static javafx.application.Application.launch;
+
+public class Minirknare extends Application implements EventHandler<ActionEvent> {
+    ArrayList<Button> numpad;
+    numpad = new ArrayList<Button>();
+    Button ETT = new Button("1");
+    Button TVÅ = new Button("2");
+    Button TRE = new Button("3");
+    Button FYRA = new Button("4");
+    Button FEM = new Button("5");
+    Button SEX = new Button("6");
+    Button SJU = new Button("7");
+    Button ÅTTA = new Button("8");
+    Button NIO = new Button("9");
+    Button NOLL = new Button("0");
+
+    BorderPane border = new BorderPane();
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        HBox hbox = addHBox();
+        border.setTop(hbox);
+
+        ETT.setOnAction(this);
+        TVÅ.setOnAction(this);
+        TRE.setOnAction(this);
+        FYRA.setOnAction(this);
+        FEM.setOnAction(this);
+        SEX.setOnAction(this);
+        SJU.setOnAction(this);
+        ÅTTA.setOnAction(this);
+        NIO.setOnAction(this);
+        NOLL.setOnAction(this);
+
+
+
+        Scene scene = new Scene(border, 1000, 700);
+        primaryStage.setTitle("goo baja");
+        primaryStage.setScene(scene);
+
+        primaryStage.show();
+    }
+
+    public HBox addHBox() {
+        HBox hbox = new HBox();
+
+        hbox.getChildren().addAll(ETT,TVÅ,TRE,FYRA,FEM,SEX,SJU,ÅTTA,NIO,NOLL);
+        return hbox;
+    }
+
+    @Override
+    public void handle(ActionEvent event) {
+
+    }
+}
